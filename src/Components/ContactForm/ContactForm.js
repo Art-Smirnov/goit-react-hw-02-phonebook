@@ -4,24 +4,28 @@ import React, { Component } from 'react';
 class ContactForm extends Component {
   state = {
     name: '',
+    number: '',
   };
 
   onInputChange = e => {
     const { name, value } = e.currentTarget;
     this.setState({ [name]: value });
   };
-  onSubmit = e => {
+
+  handleSubmit = e => {
     e.preventDefault();
-    this.props.onFormSubmit(this.state);
+
+    this.props.onSubmit(this.state);
     this.reset();
   };
 
   reset = () => {
     this.setState({ name: '' });
   };
+
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           Name
           <input
@@ -34,7 +38,21 @@ class ContactForm extends Component {
             required
           />
         </label>
-        <button type="submit">Sign up as </button>
+        <label>
+          Number
+          <input
+            onChange={this.onInputChange}
+            value={this.state.number}
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+            required
+          />
+        </label>
+        <button onChange={this.onSubmit} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }
