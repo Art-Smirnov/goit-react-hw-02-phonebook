@@ -1,18 +1,17 @@
 import React from 'react';
 
 import ContactListItem from './ContactListItem';
+import './ContactList.scss';
 
 const ContactList = ({ contacts, onDelete }) => (
-  <ul>
+  <ul className="ContactList">
     {contacts.map(({ id, name, number }) => (
-      <li key={id}>
-        <ContactListItem
-          id={id}
-          name={name}
-          number={number}
-          onDelete={onDelete}
-        />
-      </li>
+      <ContactListItem
+        id={id}
+        name={name}
+        number={number}
+        onDelete={onDelete}
+      />
     ))}
   </ul>
 );

@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import ContactForm from './Components/ContactForm';
 import ContactList from './Components/ContactList';
 import Filter from './Components/Filter';
+import Container from './Components/Container';
 
 class App extends Component {
   state = {
@@ -57,13 +58,13 @@ class App extends Component {
     const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
     return (
-      <>
-        <h2>Phonebook</h2>
+      <Container>
+        <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList contacts={visibleContacts} onDelete={this.deleteContact} />
-      </>
+      </Container>
     );
   }
 }

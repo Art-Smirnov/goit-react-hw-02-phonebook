@@ -1,0 +1,10 @@
+@import 'styles/shared.scss';
+
+.ContactList {
+  @extend %list;
+
+  // display: grid;
+  // justify-content: center;
+  // grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  // grid-gap: 24px;
+}
