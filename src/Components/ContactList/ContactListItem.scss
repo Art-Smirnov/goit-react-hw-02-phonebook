@@ -1,15 +1,17 @@
 @import 'styles/shared.scss';
 
-.ContactListItem {
-  display: flex;
-  justify-content: space-between;
-  width: 400px;
+.ContactListItem__data {
+  font-size: 20px;
 }
 
-.ContactListItem:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.btn {
+.delete__btn {
   @extend %button;
+
+  background-color: $red;
+  color: $white;
+
+  &:hover,
+  &:focus {
+    background-color: $red-accent;
+  }
 }
