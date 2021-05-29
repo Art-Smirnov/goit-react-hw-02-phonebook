@@ -1,13 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import ContactListItem from './ContactListItem';
 import './ContactList.scss';
 
-const ContactList = ({ children }) => (
-  <ul className="ContactList">{children}</ul>
+const ContactList = ({ contacts, onDelete }) => (
+  <ul className="ContactList">
+    {<ContactListItem contacts={contacts} onDelete={onDelete} />}
+  </ul>
 );
-
-ContactList.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default ContactList;
